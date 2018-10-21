@@ -1,6 +1,6 @@
 /*
- * SpaceFN layout
- * http://geekhack.org/index.php?topic=51069.0
+ * Pravetz 16 layout
+ * Elvis Pfutzenreuter <elvis.pfutzenreuter@gmail.com>
  */
 #include "keymap_common.h"
 

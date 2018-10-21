@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "debug.h"
 #include "ps2.h"
 #include "host.h"
-#include "led.h"
+#include "led_failure.h"
 #include "matrix.h"
 
 
@@ -214,7 +214,7 @@ uint8_t matrix_scan(void)
                     case 0xAA:  // Self-test passed
                     case 0xFC:  // Self-test failed
                         printf("BAT %s\n", (code == 0xAA) ? "OK" : "NG");
-                        led_set(host_keyboard_leds());
+                        led_signal_failure();
                         state = INIT;
                         break;
                     default:    // normal key make
