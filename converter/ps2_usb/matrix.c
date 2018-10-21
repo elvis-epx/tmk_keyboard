@@ -61,6 +61,8 @@ static uint8_t matrix[MATRIX_ROWS];
 
 // matrix positions for exceptional keys
 #define F7             (0x83)
+#define CYRILLIC_SHIFT (0x86) // Pravetz 16
+#define CYRILLIC_LOCK  (0x85) // Pravetz 16
 #define PRINT_SCREEN   (0xFC)
 #define PAUSE          (0xFE)
 
@@ -191,6 +193,14 @@ uint8_t matrix_scan(void)
                         matrix_make(F7);
                         state = INIT;
                         break;
+                    case 0x85:
+                        matrix_make(CYRILLIC_LOCK);
+                        state = INIT;
+                        break;
+                    case 0x86:
+                        matrix_make(CYRILLIC_SHIFT);
+                        state = INIT;
+                        break;
                     case 0x84:  // Alt'd PrintScreen
                         matrix_make(PRINT_SCREEN);
                         state = INIT;
@@ -249,6 +259,14 @@ uint8_t matrix_scan(void)
                         break;
                     case 0x84:  // Alt'd PrintScreen
                         matrix_break(PRINT_SCREEN);
+                        state = INIT;
+                        break;
+                    case 0x85:
+                        matrix_break(CYRILLIC_LOCK);
+                        state = INIT;
+                        break;
+                    case 0x86:
+                        matrix_break(CYRILLIC_SHIFT);
                         state = INIT;
                         break;
                     case 0xF0:
