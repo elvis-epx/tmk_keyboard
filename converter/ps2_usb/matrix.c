@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "debug.h"
 #include "ps2.h"
 #include "host.h"
-#include "led.h"
+#include "led_failure.h"
 #include "matrix.h"
 
 
@@ -61,6 +61,8 @@ static uint8_t matrix[MATRIX_ROWS];
 
 // matrix positions for exceptional keys
 #define F7             (0x83)
+#define CYRILLIC_SHIFT (0x86) // Pravetz 16
+#define CYRILLIC_LOCK  (0x85) // Pravetz 16
 #define PRINT_SCREEN   (0xFC)
 #define PAUSE          (0xFE)
 
@@ -191,6 +193,14 @@ uint8_t matrix_scan(void)
                         matrix_make(F7);
                         state = INIT;
                         break;
+                    case 0x85:
+                        matrix_make(CYRILLIC_LOCK);
+                        state = INIT;
+                        break;
+                    case 0x86:
+                        matrix_make(CYRILLIC_SHIFT);
+                        state = INIT;
+                        break;
                     case 0x84:  // Alt'd PrintScreen
                         matrix_make(PRINT_SCREEN);
                         state = INIT;
@@ -204,7 +214,7 @@ uint8_t matrix_scan(void)
                     case 0xAA:  // Self-test passed
                     case 0xFC:  // Self-test failed
                         printf("BAT %s\n", (code == 0xAA) ? "OK" : "NG");
-                        led_set(host_keyboard_leds());
+                        led_signal_failure();
                         state = INIT;
                         break;
                     default:    // normal key make
@@ -249,6 +259,14 @@ uint8_t matrix_scan(void)
                         break;
                     case 0x84:  // Alt'd PrintScreen
                         matrix_break(PRINT_SCREEN);
+                        state = INIT;
+                        break;
+                    case 0x85:
+                        matrix_break(CYRILLIC_LOCK);
+                        state = INIT;
+                        break;
+                    case 0x86:
+                        matrix_break(CYRILLIC_SHIFT);
                         state = INIT;
                         break;
                     case 0xF0:
