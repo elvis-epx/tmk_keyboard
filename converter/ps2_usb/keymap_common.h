@@ -65,6 +65,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * `-----------------------------------------------------------' `-----------' `---------------'
  * ^a ISO hash key uses identical scancode 5D to US backslash.
  * 51, 63, 68, 6D: hidden keys in IBM model M
+ * 86, 85: Cyrillic shift and lock (Pravetz 16, probably apocryphal)
  */
 /* All keys */
 #define KEYMAP_ALL( \
@@ -80,7 +81,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     KCD, K95, KBB, KB4, KD0, /* Next, Previous, Stop, Pause, Media Select */                \
     KC8, KAB, KC0,           /* Mail, Calculator, My Computer */                            \
     K90, KBA, KB8, KB0,      /* WWW Search, Home, Back, Forward */                          \
-    KA8, KA0, K98            /* WWW Stop, Refresh, Favorites */                             \
+    KA8, KA0, K98,           /* WWW Stop, Refresh, Favorites */                             \
+    K86, K85                 /* Cyrillic Shift and Cyrillic Lock (Pravetz 16) */            \
 ) { \
     { KC_NO,    KC_##K01, KC_NO,    KC_##K03, KC_##K04, KC_##K05, KC_##K06, KC_##K07 }, \
     { KC_##K08, KC_##K09, KC_##K0A, KC_##K0B, KC_##K0C, KC_##K0D, KC_##K0E, KC_NO    }, \
@@ -98,7 +100,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     { KC_##K68, KC_##K69, KC_##K6A, KC_##K6B, KC_##K6C, KC_##K6D, KC_NO,    KC_NO    }, \
     { KC_##K70, KC_##K71, KC_##K72, KC_##K73, KC_##K74, KC_##K75, KC_##K76, KC_##K77 }, \
     { KC_##K78, KC_##K79, KC_##K7A, KC_##K7B, KC_##K7C, KC_##K7D, KC_##K7E, KC_NO    }, \
-    { KC_NO,    KC_NO,    KC_NO,    KC_##K83, KC_NO,    KC_NO,    KC_NO,    KC_NO    }, \
+    { KC_NO,    KC_NO,    KC_NO,    KC_##K83, KC_NO,    KC_##K85, KC_##K86, KC_NO    }, \
     { KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO    }, \
     { KC_##K90, KC_##K91, KC_NO,    KC_NO,    KC_##K94, KC_##K95, KC_NO,    KC_NO    }, \
     { KC_##K98, KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_##K9F }, \
@@ -123,7 +125,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     K0D,K15,K1D,K24,K2D,K2C,K35,K3C,K43,K44,K4D,K54,K5B,    K5D, KF1,KE9,KFA,  K6C,K75,K7D,K79, \
     K58,K1C,K1B,K23,K2B,K34,K33,K3B,K42,K4B,K4C,K52,        K5A,               K6B,K73,K74,K6D, \
     K12,K61,K1A,K22,K21,K2A,K32,K31,K3A,K41,K49,K4A,    K51,K59,     KF5,      K69,K72,K7A,KDA, \
-    K14,K9F,K11,K67,    K29,            K64,K13,K91,KA7,KAF,K94, KEB,KF2,KF4,  K68,K70,K71,K63  \
+    K14,K9F,K11,K67,    K29,            K64,K13,K91,KA7,KAF,K94, KEB,KF2,KF4,  K68,K70,K71,K63, \
+    K86, K85 \
 ) \
 KEYMAP_ALL( \
         K08,K10,K18,K20,K28,K30,K38,K40,K48,K50,K57,K5F,                                        \
@@ -138,7 +141,7 @@ KEYMAP_ALL( \
     MEDIA_NEXT_TRACK, MEDIA_PREV_TRACK, MEDIA_STOP, MEDIA_PLAY_PAUSE, MEDIA_SELECT,             \
     MAIL, CALCULATOR, MY_COMPUTER,                                                              \
     WWW_SEARCH, WWW_HOME, WWW_BACK, WWW_FORWARD,                                                \
-    WWW_STOP, WWW_REFRESH, WWW_FAVORITES                                                        \
+    WWW_STOP, WWW_REFRESH, WWW_FAVORITES, K86, K85                                              \
 )
 
 /* US layout */
@@ -157,7 +160,8 @@ KEYMAP_FULL( \
     K0D,K15,K1D,K24,K2D,K2C,K35,K3C,K43,K44,K4D,K54,K5B,    K5D, KF1,KE9,KFA,  K6C,K75,K7D,K79, \
     K58,K1C,K1B,K23,K2B,K34,K33,K3B,K42,K4B,K4C,K52,        K5A,               K6B,K73,K74,PCMM,\
     K12,NUBS,K1A,K22,K21,K2A,K32,K31,K3A,K41,K49,K4A,   RO, K59,     KF5,      K69,K72,K7A,KDA, \
-    K14,K9F,K11,MHEN,   K29,          HENK,KANA,K91,KA7,KAF,K94, KEB,KF2,KF4,  PWR,K70,K71,PEQL \
+    K14,K9F,K11,MHEN,   K29,          HENK,KANA,K91,KA7,KAF,K94, KEB,KF2,KF4,  PWR,K70,K71,PEQL,\
+    NO, NO \
 )
 
 /* ISO layout */
@@ -176,7 +180,8 @@ KEYMAP_FULL( \
     K0D,K15,K1D,K24,K2D,K2C,K35,K3C,K43,K44,K4D,K54,K5B,    K5D, KF1,KE9,KFA,  K6C,K75,K7D,K79, \
     K58,K1C,K1B,K23,K2B,K34,K33,K3B,K42,K4B,K4C,K52,        K5A,               K6B,K73,K74,PCMM,\
     K12,K61,K1A,K22,K21,K2A,K32,K31,K3A,K41,K49,K4A,    RO, K59,     KF5,      K69,K72,K7A,KDA, \
-    K14,K9F,K11,MHEN,   K29,          HENK,KANA,K91,KA7,KAF,K94, KEB,KF2,KF4,  PWR,K70,K71,PEQL \
+    K14,K9F,K11,MHEN,   K29,          HENK,KANA,K91,KA7,KAF,K94, KEB,KF2,KF4,  PWR,K70,K71,PEQL,\
+    NO, NO \
 )
 
 /* JIS layout */
@@ -195,7 +200,27 @@ KEYMAP_FULL( \
     K0D,K15,K1D,K24,K2D,K2C,K35,K3C,K43,K44,K4D,K54,K5B,    K5D, KF1,KE9,KFA,  K6C,K75,K7D,K79, \
     K58,K1C,K1B,K23,K2B,K34,K33,K3B,K42,K4B,K4C,K52,        K5A,               K6B,K73,K74,PCMM,\
     K12,NUBS,K1A,K22,K21,K2A,K32,K31,K3A,K41,K49,K4A,   K51,K59,     KF5,      K69,K72,K7A,KDA, \
-    K14,K9F,K11,K67,    K29,            K64,K13,K91,KA7,KAF,K94, KEB,KF2,KF4,  PWR,K70,K71,PEQL \
+    K14,K9F,K11,K67,    K29,            K64,K13,K91,KA7,KAF,K94, KEB,KF2,KF4,  PWR,K70,K71,PEQL,\
+    NO, NO \
+)
+
+/* Pravetz 16 layout - PC/XT layout with extra Cyrillic shift/lock keys */
+#define KEYMAP_PRAVETZ16( \
+    K05,K06,   K76,K16,K1E,K26,K25,K2E,K36,K3D,K3E,K46,K45,K4E,K55,K5D,K66,      K77,    K7E,     \
+    K04,K0C,   K0D,K15,K1D,K24,K2D,K2C,K35,K3C,K43,K44,K4D,K54,K5B,              K6C,K75,K7D,K7C, \
+    K03,K0B,   K14,K1C,K1B,K23,K2B,K34,K33,K3B,K42,K4B,K4C,K52,K0E,    K5A,      K6B,K73,K74,K7B, \
+    K83,K0A,   K12,K1A,K22,K21,K2A,K32,K31,K3A,K41,K49,K4A,            K59,      K69,K72,K7A,     \
+    K01,K09,   K11,K86,                  K29,                      K85,K58,          K70,K71,K79  \
+) \
+KEYMAP_FULL( \
+        F13,F14,F15,F16,F17,F18,F19,F20,F21,F22,F23,F24,                                        \
+    K76,K05,K06,K04,K0C,K03,K0B,K83,K0A,K01,K09,NO ,NO ,         NO,NO,NO,  VOLD,VOLU,MUTE,  \
+    K0E,K16,K1E,K26,K25,K2E,K36,K3D,K3E,K46,K45,K4E,K55,JPY,K66, NO,NO,NO,  K77,NO ,K7C,K7B, \
+    K0D,K15,K1D,K24,K2D,K2C,K35,K3C,K43,K44,K4D,K54,K5B,    K5D, NO,NO,NO,  K6C,K75,K7D,K79, \
+    K58,K1C,K1B,K23,K2B,K34,K33,K3B,K42,K4B,K4C,K52,        K5A,            K6B,K73,K74,PCMM,\
+    K12,NUBS,K1A,K22,K21,K2A,K32,K31,K3A,K41,K49,K4A,   RO, K59,    NO,     K69,K72,K7A,NO , \
+    K14,NO  ,K11,MHEN,   K29,          HENK,KANA,NO  ,NO ,NO ,NO,NO,NO,NO,  PWR,K70,K71,PEQL,\
+    K86, K85 \
 )
 
 #endif

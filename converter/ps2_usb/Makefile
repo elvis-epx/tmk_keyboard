@@ -8,8 +8,16 @@ TMK_DIR ?= ../../tmk_core
 TARGET_DIR ?= .
 
 # project specific files
-SRC ?=	matrix.c \
-	led.c
+SRC ?= matrix.c
+ifdef KEYMAP
+    ifeq ($(KEYMAP), pravetz16)
+	SRC := led_pravetz16.c $(SRC)
+    else
+	SRC := led.c $(SRC)
+    endif
+else
+    SRC := led.c $(SRC)
+endif
 
 #
 # Keymap file
