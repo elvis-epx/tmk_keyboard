@@ -11,7 +11,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     F3, F4, TAB,    Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,LBRC,RBRC,             HOME,  UP,PGUP,PMNS,
     F5, F6, LCTL,   A,   S,   D,   F,   G,   H,   J,   K,   L,SCLN,QUOT, GRV,      ENT,   LEFT,  NO,RGHT,PPLS,
     F7, F8, LSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT,SLSH,               RSFT,    END,DOWN,PGDN,
-    F9,F10, LALT,LGUI,              SPC,                                     RGUI, APP,         INS, DEL,PENT
+    F9,F10, LALT,LGUI,              SPC,                                      APP,CAPS,         INS, DEL,PENT
     ),
     /* 1: Num Lock as toggling Fn */
     KEYMAP_PRAVETZ16(
