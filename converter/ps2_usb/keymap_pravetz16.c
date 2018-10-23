@@ -18,7 +18,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     F3, F4, TAB,    Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,LBRC,RBRC,             HOME,  UP,PGUP,PMNS,
     F5, F6, LCTL,   A,   S,   D,   F,   G,   H,   J,   K,   L,SCLN,QUOT, GRV,      ENT,   LEFT,  NO,RGHT,PPLS,
     F7, F8, LSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT,SLSH,               RSFT,    END,DOWN,PGDN,
-    F9,F10, LALT,LGUI,              SPC,                                      APP,CAPS,         INS, DEL,PENT
+    F9,F10, LALT,LGUI,              SPC,                                     RGUI,RALT,         INS, DEL,PENT
     ),
     /* 1: Num Lock as toggling Fn, activates numeric block, leaves all others as they are */
     KEYMAP_PRAVETZ16(
@@ -26,7 +26,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,            P7, P8,  P9,TRNS,
     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,       P4, P5,  P6,TRNS,
     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,                 P1, P2,  P3,
-    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,                                                        P0,PDOT,TRNS
+    TRNS,TRNS,TRNS,TRNS,   TRNS,    TRNS,TRNS,                                                 P0,PDOT,TRNS
     ),
     /* 2: Scroll Lock as intermitent Fn, affects function keys only */
     KEYMAP_PRAVETZ16(
@@ -34,7 +34,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MRWD,MFFD,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,            TRNS,TRNS,TRNS,TRNS,
     MSTP,MPLY,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,       TRNS,TRNS,TRNS,TRNS,
     MPRV,MNXT,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,                 TRNS,TRNS,TRNS,
-    VOLD,VOLU,TRNS,TRNS,TRNS,TRNS,TRNS,                                                         TRNS,TRNS,TRNS
+    VOLD,VOLU,TRNS,TRNS,   TRNS,     APP,CAPS,                                                  TRNS,TRNS,TRNS
     ),
 };
 

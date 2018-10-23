@@ -41,7 +41,7 @@ CONFIG_H ?= config.h
 
 
 # MCU name
-MCU ?= atmega32u2
+MCU ?= atmega32u4
 
 # Processor frequency.
 #     This will define a symbol, F_CPU, in all source code files equal to the
